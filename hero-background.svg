@@ -1,0 +1,186 @@
+<svg width="1200" height="600" viewBox="0 0 1200 600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Gradiente principal más sofisticado -->
+    <radialGradient id="mainGradient" cx="30%" cy="40%" r="80%">
+      <stop offset="0%" style="stop-color:#fdf8f5;stop-opacity:1" />
+      <stop offset="30%" style="stop-color:#f9f1ec;stop-opacity:1" />
+      <stop offset="70%" style="stop-color:#f3e8e0;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ede0d4;stop-opacity:1" />
+    </radialGradient>
+    
+    <!-- Gradiente para efectos de luz -->
+    <radialGradient id="lightEffect" cx="50%" cy="30%" r="60%">
+      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:0.4" />
+      <stop offset="50%" style="stop-color:#ffffff;stop-opacity:0.2" />
+      <stop offset="100%" style="stop-color:#ffffff;stop-opacity:0" />
+    </radialGradient>
+    
+    <!-- Gradiente para la silueta más realista -->
+    <linearGradient id="figureGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:0.95" />
+      <stop offset="30%" style="stop-color:#fefefe;stop-opacity:0.85" />
+      <stop offset="70%" style="stop-color:#fcfcfc;stop-opacity:0.75" />
+      <stop offset="100%" style="stop-color:#f8f8f8;stop-opacity:0.65" />
+    </linearGradient>
+    
+    <!-- Gradiente para sombras suaves -->
+    <linearGradient id="shadowGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#e8ddd4;stop-opacity:0.3" />
+      <stop offset="100%" style="stop-color:#d4c4b0;stop-opacity:0.1" />
+    </linearGradient>
+    
+    <!-- Patrón de encaje más detallado -->
+    <pattern id="lacePattern" x="0" y="0" width="60" height="60" patternUnits="userSpaceOnUse">
+      <g opacity="0.15">
+        <circle cx="30" cy="30" r="3" fill="#ffffff"/>
+        <circle cx="15" cy="15" r="1.5" fill="#ffffff"/>
+        <circle cx="45" cy="15" r="1.5" fill="#ffffff"/>
+        <circle cx="15" cy="45" r="1.5" fill="#ffffff"/>
+        <circle cx="45" cy="45" r="1.5" fill="#ffffff"/>
+        <path d="M 15 30 Q 30 20 45 30 Q 30 40 15 30" fill="none" stroke="#ffffff" stroke-width="0.5"/>
+        <path d="M 30 15 Q 20 30 30 45 Q 40 30 30 15" fill="none" stroke="#ffffff" stroke-width="0.5"/>
+      </g>
+    </pattern>
+    
+    <!-- Patrón floral sutil -->
+    <pattern id="floralPattern" x="0" y="0" width="80" height="80" patternUnits="userSpaceOnUse">
+      <g opacity="0.08">
+        <path d="M 40 35 Q 35 30 40 25 Q 45 30 40 35 Q 35 40 40 45 Q 45 40 40 35" fill="#ffffff"/>
+        <circle cx="20" cy="20" r="2" fill="#ffffff"/>
+        <circle cx="60" cy="60" r="2" fill="#ffffff"/>
+      </g>
+    </pattern>
+    
+    <!-- Filtro de desenfoque suave -->
+    <filter id="softBlur" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="2"/>
+    </filter>
+    
+    <!-- Filtro de resplandor -->
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/> 
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Fondo principal con gradiente radial -->
+  <rect width="1200" height="600" fill="url(#mainGradient)"/>
+  
+  <!-- Efecto de luz ambiental -->
+  <ellipse cx="400" cy="200" rx="300" ry="200" fill="url(#lightEffect)"/>
+  
+  <!-- Elementos decorativos de fondo -->
+  <g opacity="0.12">
+    <ellipse cx="150" cy="100" rx="80" ry="40" fill="url(#shadowGradient)" transform="rotate(-15 150 100)"/>
+    <ellipse cx="1000" cy="450" rx="120" ry="60" fill="url(#shadowGradient)" transform="rotate(20 1000 450)"/>
+    <ellipse cx="200" cy="500" rx="60" ry="30" fill="url(#shadowGradient)" transform="rotate(-30 200 500)"/>
+  </g>
+  
+  <!-- Silueta principal más estilizada -->
+  <g transform="translate(650, 30)">
+    <!-- Sombra de la figura -->
+    <path d="M 160 70 
+             C 145 65, 130 70, 120 85
+             C 110 100, 108 120, 112 140
+             C 115 165, 120 190, 125 215
+             C 130 245, 135 275, 140 305
+             C 145 340, 150 375, 155 410
+             C 160 445, 165 480, 170 515
+             L 190 515
+             C 195 480, 200 445, 205 410
+             C 210 375, 215 340, 220 305
+             C 225 275, 230 245, 235 215
+             C 240 190, 245 165, 248 140
+             C 252 120, 250 100, 240 85
+             C 230 70, 215 65, 200 70
+             Z" 
+          fill="url(#shadowGradient)" opacity="0.3" transform="translate(5, 5)" filter="url(#softBlur)"/>
+    
+    <!-- Cuerpo principal más detallado -->
+    <path d="M 155 65 
+             C 142 60, 128 65, 118 80
+             C 108 95, 106 115, 110 135
+             C 113 160, 118 185, 123 210
+             C 128 240, 133 270, 138 300
+             C 143 335, 148 370, 153 405
+             C 158 440, 163 475, 168 510
+             L 185 510
+             C 190 475, 195 440, 200 405
+             C 205 370, 210 335, 215 300
+             C 220 270, 225 240, 230 210
+             C 235 185, 240 160, 243 135
+             C 247 115, 245 95, 235 80
+             C 225 65, 212 60, 198 65
+             C 190 62, 175 60, 165 62
+             C 160 63, 157 64, 155 65
+             Z" 
+          fill="url(#figureGradient)" opacity="0.8" filter="url(#glow)"/>
+    
+    <!-- Cabello elegante -->
+    <path d="M 155 65 Q 140 50 130 40 Q 145 35 160 40 Q 175 35 190 40 Q 200 50 185 65 Q 170 60 155 65" 
+          fill="url(#figureGradient)" opacity="0.6"/>
+    
+    <!-- Detalles de lencería más sofisticados -->
+    <!-- Sujetador con más detalle -->
+    <g transform="translate(0, 45)">
+      <!-- Copas del sujetador -->
+      <ellipse cx="140" cy="110" rx="15" ry="12" fill="#ffffff" opacity="0.9" filter="url(#glow)"/>
+      <ellipse cx="175" cy="110" rx="15" ry="12" fill="#ffffff" opacity="0.9" filter="url(#glow)"/>
+      
+      <!-- Banda central -->
+      <rect x="155" y="105" width="5" height="10" fill="#ffffff" opacity="0.8" rx="2"/>
+      
+      <!-- Tirantes -->
+      <path d="M 135 100 Q 140 85 145 70" stroke="#ffffff" stroke-width="2" fill="none" opacity="0.7"/>
+      <path d="M 180 100 Q 175 85 170 70" stroke="#ffffff" stroke-width="2" fill="none" opacity="0.7"/>
+      
+      <!-- Detalles de encaje en copas -->
+      <circle cx="140" cy="110" r="8" fill="url(#lacePattern)" opacity="0.6"/>
+      <circle cx="175" cy="110" r="8" fill="url(#lacePattern)" opacity="0.6"/>
+      
+      <!-- Banda inferior -->
+      <path d="M 125 118 Q 157 115 190 118" stroke="#ffffff" stroke-width="1.5" fill="none" opacity="0.8"/>
+    </g>
+    
+    <!-- Braguita más detallada -->
+    <g transform="translate(0, 90)">
+      <ellipse cx="157" cy="200" rx="22" ry="15" fill="#ffffff" opacity="0.8" filter="url(#glow)"/>
+      
+      <!-- Bandas laterales -->
+      <path d="M 135 200 Q 130 190 125 180" stroke="#ffffff" stroke-width="2" fill="none" opacity="0.7"/>
+      <path d="M 179 200 Q 184 190 189 180" stroke="#ffffff" stroke-width="2" fill="none" opacity="0.7"/>
+      
+      <!-- Detalle de encaje -->
+      <ellipse cx="157" cy="200" rx="12" ry="8" fill="url(#lacePattern)" opacity="0.5"/>
+      
+      <!-- Banda superior -->
+      <path d="M 135 192 Q 157 188 179 192" stroke="#ffffff" stroke-width="1" fill="none" opacity="0.8"/>
+    </g>
+    
+    <!-- Efectos de luz en la figura -->
+    <ellipse cx="160" cy="150" rx="25" ry="40" fill="url(#lightEffect)" opacity="0.3"/>
+    <ellipse cx="175" cy="250" rx="20" ry="30" fill="url(#lightEffect)" opacity="0.2"/>
+  </g>
+  
+  <!-- Elementos decorativos flotantes -->
+  <g opacity="0.15">
+    <circle cx="100" cy="150" r="8" fill="#ffffff" filter="url(#softBlur)"/>
+    <circle cx="1100" cy="200" r="12" fill="#ffffff" filter="url(#softBlur)"/>
+    <circle cx="200" cy="400" r="6" fill="#ffffff" filter="url(#softBlur)"/>
+    <circle cx="1000" cy="500" r="10" fill="#ffffff" filter="url(#softBlur)"/>
+    
+    <!-- Formas orgánicas -->
+    <path d="M 50 300 Q 80 280 110 300 Q 80 320 50 300" fill="#ffffff" opacity="0.1"/>
+    <path d="M 1050 100 Q 1080 80 1110 100 Q 1080 120 1050 100" fill="#ffffff" opacity="0.1"/>
+  </g>
+  
+  <!-- Patrones de fondo superpuestos -->
+  <rect x="0" y="0" width="1200" height="600" fill="url(#lacePattern)" opacity="0.08"/>
+  <rect x="0" y="0" width="1200" height="600" fill="url(#floralPattern)" opacity="0.05"/>
+  
+  <!-- Efecto de viñeta sutil -->
+  <rect x="0" y="0" width="1200" height="600" fill="url(#shadowGradient)" opacity="0.1"/>
+</svg>

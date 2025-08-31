@@ -1,0 +1,38 @@
+{
+  "name": "anyta-lingerie-store",
+  "version": "1.0.0",
+  "description": "E-commerce marketplace para lencería con panel de administración y gestión dinámica de categorías",
+  "main": "index.html",
+  "scripts": {
+    "start": "python -m http.server 8000",
+    "dev": "python -m http.server 8000",
+    "serve": "python -m http.server 8000"
+  },
+  "keywords": [
+    "ecommerce",
+    "marketplace",
+    "lingerie",
+    "javascript",
+    "html5",
+    "css3",
+    "responsive",
+    "admin-panel",
+    "categories",
+    "shopping-cart"
+  ],
+  "author": "Anyta Lingerie",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/TU_USUARIO/anyta-lingerie-store.git"
+  },
+  "homepage": "https://TU_USUARIO.github.io/anyta-lingerie-store",
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ]
+}

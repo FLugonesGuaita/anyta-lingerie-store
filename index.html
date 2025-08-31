@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anyta Lingerie - Marketplace Premium</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="nav-logo">
+                <img src="logo.svg" alt="Anyta Lingerie" class="logo">
+            </div>
+            <div class="nav-brand">
+                <div class="brand-text">
+                    <h1>Anyta Lingerie</h1>
+                    <span class="slogan">Elegancia que seduce</span>
+                </div>
+            </div>
+            <nav class="nav-menu">
+                <ul>
+                    <li><a href="#home">Inicio</a></li>
+                    <li><a href="#productos">Productos</a></li>
+                    <li><a href="#categorias">Categorías</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+            </nav>
+            <div class="nav-actions">
+                <div class="search-box">
+                    <input type="text" id="searchInput" placeholder="Buscar productos...">
+                    <i class="fas fa-search"></i>
+                </div>
+                <div class="cart-icon" onclick="toggleCart()">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count" id="cartCount">0</span>
+                </div>
+                <button class="admin-btn" onclick="showLoginModal()">Admin</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-decorative"></div>
+        <div class="hero-decorative"></div>
+        <div class="hero-decorative"></div>
+        <div class="hero-decorative"></div>
+        <div class="hero-decorative"></div>
+        <div class="hero-decorative"></div>
+        <div class="hero-decorative"></div>
+        <div class="hero-decorative"></div>
+        <div class="hero-content">
+            <h2>Elegancia y Sensualidad</h2>
+            <p>Descubre nuestra exclusiva colección de lencería premium</p>
+            <button class="cta-btn" onclick="scrollToProducts()">Ver Colección</button>
+        </div>
+        <div class="hero-image">
+            <img src="hero-image.jpg" alt="Lencería Premium">
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section class="categories" id="categorias">
+        <div class="container">
+            <h2>Categorías</h2>
+            <div class="category-grid">
+                <div class="category-card" data-category="conjuntos">
+                    <img src="category-conjuntos.jpg" alt="Conjuntos">
+                    <h3>Conjuntos</h3>
+                </div>
+                <div class="category-card" data-category="bodys">
+                    <img src="category-bodys.jpg" alt="Bodys">
+                    <h3>Bodys</h3>
+                </div>
+                <div class="category-card" data-category="lenceria-nocturna">
+                    <img src="category-nocturna.jpg" alt="Lencería Nocturna">
+                    <h3>Lencería Nocturna</h3>
+                </div>
+                <div class="category-card" data-category="accesorios">
+                    <img src="category-accesorios.jpg" alt="Accesorios">
+                    <h3>Accesorios</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="products" id="productos">
+        <div class="container">
+            <div class="products-header">
+                <h2>Nuestros Productos</h2>
+                <div class="filters">
+                    <select id="categoryFilter">
+                        <option value="all">Todas las categorías</option>
+                        <option value="conjuntos">Conjuntos</option>
+                        <option value="bodys">Bodys</option>
+                        <option value="lenceria-nocturna">Lencería Nocturna</option>
+                        <option value="accesorios">Accesorios</option>
+                    </select>
+                    <select id="priceFilter">
+                        <option value="all">Todos los precios</option>
+                        <option value="0-50">$0 - $50</option>
+                        <option value="50-100">$50 - $100</option>
+                        <option value="100-200">$100 - $200</option>
+                        <option value="200+">$200+</option>
+                    </select>
+                </div>
+            </div>
+            <div class="products-grid" id="productsGrid">
+                <!-- Los productos se cargarán dinámicamente -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contacto">
+        <div class="container">
+            <h2>Contacto</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4>Email</h4>
+                            <p>info@celestelenceria.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h4>Teléfono</h4>
+                            <p>+1 234 567 8900</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4>Dirección</h4>
+                            <p>Av. Principal 123, Ciudad</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <h4>Horarios</h4>
+                            <p>Lun - Vie: 9:00 - 18:00<br>Sáb: 10:00 - 16:00</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <h3>Envíanos un mensaje</h3>
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <input type="text" id="contactName" placeholder="Tu nombre" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="contactEmail" placeholder="Tu email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="contactSubject" placeholder="Asunto" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="contactMessage" placeholder="Tu mensaje" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="contact-btn">Enviar Mensaje</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cart Sidebar -->
+    <div class="cart-sidebar" id="cartSidebar">
+        <div class="cart-header">
+            <h3>Carrito de Compras</h3>
+            <button class="close-cart" onclick="toggleCart()">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="cart-items" id="cartItems">
+            <!-- Los items del carrito se cargarán aquí -->
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <strong>Subtotal: $<span id="cartSubtotal">0.00</span></strong>
+                <div class="shipping-cost" id="shippingCost" style="display: none;">
+                    <span>Envío: $<span id="shippingAmount">0</span></span>
+                </div>
+                <div class="total-final">
+                    <strong>Total: $<span id="cartTotal">0.00</span></strong>
+                </div>
+            </div>
+            <button class="checkout-btn" onclick="proceedToCheckout()">Finalizar Compra</button>
+        </div>
+    </div>
+
+    <!-- Login Modal -->
+    <div class="modal" id="loginModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Acceso Administrativo</h3>
+                <button class="close-modal" onclick="closeLoginModal()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="username">Usuario:</label>
+                    <input type="text" id="username" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Contraseña:</label>
+                    <input type="password" id="password" required>
+                </div>
+                <button type="submit">Iniciar Sesión</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Admin Panel -->
+    <div class="admin-panel" id="adminPanel">
+        <div class="admin-header">
+            <h2>Panel de Administración</h2>
+            <button class="close-admin" onclick="closeAdminPanel()">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="admin-content">
+            <div class="admin-tabs">
+                <button class="tab-btn active" onclick="showTab('products')">Productos</button>
+                <button class="tab-btn" onclick="showTab('categories')">Categorías</button>
+                <button class="tab-btn" onclick="showTab('orders')">Pedidos</button>
+                <button class="tab-btn" onclick="showTab('analytics')">Estadísticas</button>
+            </div>
+            <div class="tab-content" id="productsTab">
+                <div class="admin-actions">
+                    <button class="add-product-btn" onclick="showAddProductForm()">Añadir Producto</button>
+                </div>
+                <div class="admin-products-list" id="adminProductsList">
+                    <!-- Lista de productos para administrar -->
+                </div>
+            </div>
+            <div class="tab-content" id="categoriesTab" style="display: none;">
+                <div class="categories-header">
+                    <h3>Gestión de Categorías</h3>
+                    <button class="add-category-btn" onclick="showAddCategoryForm()">Añadir Categoría</button>
+                </div>
+                <div class="categories-list" id="adminCategoriesList">
+                    <!-- Lista de categorías se carga dinámicamente -->
+                </div>
+            </div>
+            <div class="tab-content" id="ordersTab" style="display: none;">
+                <div class="orders-header">
+                    <h3>Gestión de Pedidos</h3>
+                    <div class="orders-filters">
+                        <select id="orderStatusFilter">
+                            <option value="all">Todos los estados</option>
+                            <option value="pending">Pendientes</option>
+                            <option value="shipped">Enviados</option>
+                            <option value="delivered">Entregados</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="orders-list" id="adminOrdersList">
+                    <!-- Lista de pedidos se carga dinámicamente -->
+                </div>
+            </div>
+            <div class="tab-content" id="analyticsTab" style="display: none;">
+                <div class="analytics-dashboard">
+                    <div class="stat-card">
+                        <h4>Productos Totales</h4>
+                        <span id="totalProducts">0</span>
+                    </div>
+                    <div class="stat-card">
+                        <h4>Ventas del Mes</h4>
+                        <span id="monthlySales">$0</span>
+                    </div>
+                    <div class="stat-card">
+                        <h4>Pedidos Pendientes</h4>
+                        <span id="pendingOrders">0</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Product Form Modal -->
+    <div class="modal" id="productModal">
+        <div class="modal-content large">
+            <div class="modal-header">
+                <h3 id="productModalTitle">Añadir Producto</h3>
+                <button class="close-modal" onclick="closeProductModal()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <form id="productForm">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="productName">Nombre:</label>
+                        <input type="text" id="productName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="productPrice">Precio:</label>
+                        <input type="number" id="productPrice" step="0.01" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="productCategory">Categoría:</label>
+                        <select id="productCategory" required>
+                            <option value="conjuntos">Conjuntos</option>
+                            <option value="bodys">Bodys</option>
+                            <option value="lenceria-nocturna">Lencería Nocturna</option>
+                            <option value="accesorios">Accesorios</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="productStock">Stock:</label>
+                        <input type="number" id="productStock" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="productPurchasePrice">Precio de Compra:</label>
+                        <input type="number" id="productPurchasePrice" step="0.01" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="productMargin">Margen (%):</label>
+                        <input type="number" id="productMargin" min="0" max="1000" step="0.1" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="productFinalPrice">Precio de Venta (calculado):</label>
+                    <input type="number" id="productFinalPrice" step="0.01" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="productDescription">Descripción:</label>
+                    <textarea id="productDescription" rows="4" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="productImage">URL de Imagen:</label>
+                    <input type="url" id="productImage" required>
+                </div>
+                <div class="form-group">
+                    <label for="productSizes">Tallas disponibles:</label>
+                    <div class="sizes-management">
+                        <div class="sizes-input-section">
+                            <input type="text" id="sizeInput" placeholder="Ej: S, M, L o 85, 90, 95 o Único">
+                            <button type="button" id="addSizeBtn" onclick="addSize()">Añadir</button>
+                        </div>
+                        <div class="sizes-list" id="sizesList">
+                            <!-- Las tallas añadidas aparecerán aquí -->
+                        </div>
+                        <div class="sizes-presets">
+                            <button type="button" onclick="addPresetSizes('letters')">Letras (XS-XXL)</button>
+                            <button type="button" onclick="addPresetSizes('numbers')">Números (85-100)</button>
+                            <button type="button" onclick="addPresetSizes('unique')">Talle Único</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-actions">
+                    <button type="button" onclick="closeProductModal()">Cancelar</button>
+                    <button type="submit">Guardar Producto</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Category Form Modal -->
+    <div class="modal" id="categoryModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="categoryModalTitle">Añadir Categoría</h3>
+                <button class="close-modal" onclick="closeCategoryModal()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <form id="categoryForm">
+                <div class="form-group">
+                    <label for="categoryName">Nombre de la Categoría:</label>
+                    <input type="text" id="categoryName" required placeholder="Ej: Conjuntos, Bodys, etc.">
+                </div>
+                <div class="form-group">
+                    <label for="categorySlug">Identificador (slug):</label>
+                    <input type="text" id="categorySlug" required placeholder="Ej: conjuntos, bodys, etc.">
+                    <small>Se genera automáticamente, pero puedes editarlo</small>
+                </div>
+                <div class="form-group">
+                    <label for="categoryDescription">Descripción (opcional):</label>
+                    <textarea id="categoryDescription" placeholder="Descripción de la categoría"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="categoryImage">URL de Imagen:</label>
+                    <input type="url" id="categoryImage" placeholder="https://ejemplo.com/imagen.jpg">
+                </div>
+                <div class="form-actions">
+                    <button type="button" onclick="closeCategoryModal()">Cancelar</button>
+                    <button type="submit">Guardar Categoría</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Anyta Lingerie</h4>
+                    <p>Elegancia y sensualidad en cada prenda</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Contacto</h4>
+                    <p>Email: info@celestelenceria.com</p>
+                    <p>Teléfono: +1 234 567 8900</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Síguenos</h4>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Anyta Lingerie. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+</div>
+
+    <!-- Modal de Detalle de Producto -->
+    <div id="productDetailModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeProductDetailModal()">&times;</span>
+            <h2 id="modalProductName"></h2>
+            <img id="modalProductImage" src="" alt="">
+            <p id="modalProductDescription"></p>
+            <p class="price">$<span id="modalProductPrice"></span></p>
+            <div class="stock-info" id="modalStockInfo">
+                <span class="stock-available">Stock: <span id="modalStock"></span> unidades</span>
+                <div class="stock-alert" id="modalStockAlert" style="display: none;">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    <span>¡Producto agotado! Reposición estimada: <span id="modalRestockDate"></span></span>
+                </div>
+            </div>
+            <div class="size-selector">
+                <label for="modalSizeSelect">Talla:</label>
+                <select id="modalSizeSelect">
+                    <option value="XS">XS</option>
+                    <option value="S">S</option>
+                    <option value="M" selected>M</option>
+                    <option value="L">L</option>
+                    <option value="XL">XL</option>
+                </select>
+            </div>
+            <button class="add-to-cart-btn" id="modalAddToCartBtn" onclick="addToCartFromModal()">Añadir al Carrito</button>
+        </div>
+    </div>
+
+    <!-- Modal de Checkout -->
+    <div id="checkoutModal" class="modal">
+        <div class="modal-content checkout-modal">
+            <span class="close" onclick="closeCheckoutModal()">&times;</span>
+            <h2>Finalizar Compra</h2>
+            
+            <form id="checkoutForm" onsubmit="processOrder(event); return false;">
+                <div class="checkout-section">
+                    <h3>Datos Personales</h3>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="firstName">Nombre *</label>
+                            <input type="text" id="firstName" name="firstName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="lastName">Apellido *</label>
+                            <input type="text" id="lastName" name="lastName" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="email">Email *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Teléfono *</label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="checkout-section">
+                    <h3>Método de Entrega</h3>
+                    <div class="delivery-options">
+                        <label class="delivery-option">
+                            <input type="radio" name="delivery" value="pickup" checked onchange="updateDeliveryMethod()">
+                            <span class="delivery-info">
+                                <strong>Retiro en Tienda</strong>
+                                <small>Av. Corrientes 1234, CABA - Gratis</small>
+                            </span>
+                        </label>
+                        <label class="delivery-option">
+                            <input type="radio" name="delivery" value="home" onchange="updateDeliveryMethod()">
+                            <span class="delivery-info">
+                                <strong>Envío a Domicilio</strong>
+                                <small>Costo calculado según distancia</small>
+                            </span>
+                        </label>
+                    </div>
+                    
+                    <div id="addressSection" class="address-section" style="display: none;">
+                        <div class="form-group">
+                            <label for="address">Dirección Completa *</label>
+                            <input type="text" id="address" name="address" placeholder="Calle, Número, Piso, Depto">
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="city">Ciudad *</label>
+                                <input type="text" id="city" name="city">
+                            </div>
+                            <div class="form-group">
+                                <label for="postalCode">Código Postal *</label>
+                                <input type="text" id="postalCode" name="postalCode">
+                            </div>
+                        </div>
+                        <button type="button" class="calculate-shipping-btn" onclick="calculateShipping()">Calcular Envío</button>
+                    </div>
+                </div>
+
+                <div class="checkout-section">
+                    <h3>Resumen del Pedido</h3>
+                    <div id="checkoutSummary"></div>
+                    <div class="checkout-total">
+                        <div class="total-line">
+                            <span>Subtotal:</span>
+                            <span>$<span id="checkoutSubtotal">0</span></span>
+                        </div>
+                        <div class="total-line shipping-line" id="checkoutShippingLine" style="display: none;">
+                            <span>Envío:</span>
+                            <span>$<span id="checkoutShipping">0</span></span>
+                        </div>
+                        <div class="total-line final-total">
+                            <span><strong>Total:</strong></span>
+                            <span><strong>$<span id="checkoutTotal">0</span></strong></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="checkout-actions">
+                    <button type="button" class="btn-secondary" onclick="closeCheckoutModal()">Cancelar</button>
+                    <button type="submit" class="btn-primary">Confirmar Pedido</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal de Detalles del Pedido -->
+    <div id="orderDetailsModal" class="modal">
+        <div class="modal-content large">
+            <div class="modal-header">
+                <h3>Detalles del Pedido <span id="orderDetailsId"></span></h3>
+                <button class="close-modal" onclick="closeOrderDetailsModal()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="order-details-content">
+                <div class="order-details-section">
+                    <h4><i class="fas fa-user"></i> Información del Cliente</h4>
+                    <div class="details-grid">
+                        <div class="detail-item">
+                            <label>Nombre:</label>
+                            <span id="orderDetailsCustomer"></span>
+                        </div>
+                        <div class="detail-item">
+                            <label>Email:</label>
+                            <span id="orderDetailsEmail"></span>
+                        </div>
+                        <div class="detail-item">
+                            <label>Teléfono:</label>
+                            <span id="orderDetailsPhone"></span>
+                        </div>
+                        <div class="detail-item">
+                            <label>Método de Entrega:</label>
+                            <span id="orderDetailsDelivery"></span>
+                        </div>
+                        <div class="detail-item" id="orderDetailsAddressItem" style="display: none;">
+                            <label>Dirección:</label>
+                            <span id="orderDetailsAddress"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="order-details-section">
+                    <h4><i class="fas fa-box"></i> Productos Pedidos</h4>
+                    <div class="order-details-items" id="orderDetailsItems">
+                        <!-- Los productos se cargarán dinámicamente -->
+                    </div>
+                </div>
+
+                <div class="order-details-section">
+                    <h4><i class="fas fa-info-circle"></i> Información del Pedido</h4>
+                    <div class="details-grid">
+                        <div class="detail-item">
+                            <label>Estado:</label>
+                            <span id="orderDetailsStatus" class="order-status"></span>
+                        </div>
+                        <div class="detail-item">
+                            <label>Fecha del Pedido:</label>
+                            <span id="orderDetailsDate"></span>
+                        </div>
+                        <div class="detail-item">
+                            <label>Subtotal:</label>
+                            <span id="orderDetailsSubtotal"></span>
+                        </div>
+                        <div class="detail-item">
+                            <label>Costo de Envío:</label>
+                            <span id="orderDetailsShipping"></span>
+                        </div>
+                        <div class="detail-item total-item">
+                            <label><strong>Total:</strong></label>
+                            <span id="orderDetailsTotal"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="order-details-actions">
+                    <button class="btn-secondary" onclick="updateOrderStatus(document.getElementById('orderDetailsId').textContent.replace('#', ''))">
+                        <i class="fas fa-edit"></i> Cambiar Estado
+                    </button>
+                    <button class="btn-secondary" onclick="printOrderDetails()">
+                        <i class="fas fa-print"></i> Imprimir
+                    </button>
+                    <button class="btn-primary" onclick="closeOrderDetailsModal()">
+                        <i class="fas fa-check"></i> Cerrar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
