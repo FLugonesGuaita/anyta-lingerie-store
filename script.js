@@ -9,7 +9,7 @@ let editingCategoryId = null;
 // Credenciales de administrador
 const ADMIN_CREDENTIALS = {
     username: 'Celeste',
-    password: 'Interact2'
+    password: '1234'
 };
 
 // Los productos se cargan desde localStorage
