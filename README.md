@@ -30,7 +30,7 @@ Marketplace profesional de lencería premium con sistema de administración comp
 ## 🔐 Credenciales de Administrador
 
 - **Usuario:** `Celeste`
-- **Contraseña:** `Interact2`
+- **Contraseña:** 
 
 ## 📁 Estructura del Proyecto
 
@@ -48,44 +48,6 @@ anyta-lingerie-store/
 └── placeholder.svg     # Imagen placeholder para productos
 ```
 
-## 🚀 Subir a GitHub
-
-### Opción 1: Crear repositorio desde GitHub.com
-1. Ve a [GitHub.com](https://github.com) e inicia sesión
-2. Haz clic en el botón "New" o "+" para crear un nuevo repositorio
-3. Nombra el repositorio: `anyta-lingerie-store`
-4. Añade la descripción: "E-commerce marketplace para lencería con panel de administración y gestión dinámica de categorías"
-5. Marca como público (o privado si prefieres)
-6. **NO** inicialices con README (ya tienes uno)
-7. Haz clic en "Create repository"
-
-### Opción 2: Comandos Git para subir el proyecto
-Ejecuta estos comandos en la terminal desde la carpeta del proyecto:
-
-```bash
-# Inicializar repositorio Git
-git init
-
-# Añadir todos los archivos
-git add .
-
-# Hacer el primer commit
-git commit -m "Initial commit: Anyta Lingerie Marketplace with dynamic categories and custom pricing"
-
-# Conectar con tu repositorio de GitHub (reemplaza TU_USUARIO)
-git remote add origin https://github.com/TU_USUARIO/anyta-lingerie-store.git
-
-# Subir los archivos
-git branch -M main
-git push -u origin main
-```
-
-### Opción 3: GitHub Desktop
-1. Descarga [GitHub Desktop](https://desktop.github.com/)
-2. Abre GitHub Desktop e inicia sesión
-3. Haz clic en "Add an Existing Repository from your Hard Drive"
-4. Selecciona la carpeta del proyecto
-5. Haz clic en "Publish repository" y sigue las instrucciones
 
 ## 🚀 Cómo Usar
 
