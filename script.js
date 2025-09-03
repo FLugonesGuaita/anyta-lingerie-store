@@ -612,6 +612,9 @@ function renderAdminProducts() {
                     <button class="stock-btn" onclick="updateStock(${product.id})">
                         <i class="fas fa-boxes"></i> Stock
                     </button>
+                    <button class="featured-btn ${product.featured ? 'active' : ''}" onclick="toggleFeatured(${product.id})">
+                        <i class="fas fa-star"></i> ${product.featured ? 'Destacado' : 'Destacar'}
+                    </button>
                 </div>
             </div>
         `;
@@ -1152,28 +1155,7 @@ function toggleFeatured(productId) {
     }
 }
 
-// Función para generar productos aleatorios (para demo)
-function generateRandomProduct() {
-    const names = ['Conjunto Elegante', 'Body Seductor', 'Camisón Romántico', 'Lencería Premium'];
-    const categories = ['conjuntos', 'bodys', 'lenceria-nocturna', 'accesorios'];
-    const colors = ['Negro', 'Rojo', 'Blanco', 'Rosa', 'Azul', 'Violeta'];
-    
-    const randomName = names[Math.floor(Math.random() * names.length)];
-    const randomColor = colors[Math.floor(Math.random() * colors.length)];
-    const randomCategory = categories[Math.floor(Math.random() * categories.length)];
-    
-    return {
-        id: Date.now(),
-        name: `${randomName} ${randomColor}`,
-        price: Math.random() * 150 + 30,
-        category: randomCategory,
-        description: 'Producto generado automáticamente para demostración.',
-        image: 'placeholder.svg',
-        stock: Math.floor(Math.random() * 20) + 1,
-        sizes: ['S', 'M', 'L'],
-        featured: Math.random() > 0.7
-    };
-}
+
 
 // Función para mostrar detalles del producto
 function showProductDetails(productId) {

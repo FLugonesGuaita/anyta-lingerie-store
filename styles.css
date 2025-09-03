@@ -1548,7 +1548,8 @@ body {
 
 .edit-btn,
 .delete-btn,
-.stock-btn {
+.stock-btn,
+.featured-btn {
     padding: 8px 16px;
     border: none;
     border-radius: 20px;
@@ -1572,9 +1573,20 @@ body {
     color: white;
 }
 
+.featured-btn {
+    background: #f39c12;
+    color: white;
+}
+
+.featured-btn.active {
+    background: #e67e22;
+    box-shadow: 0 0 10px rgba(230, 126, 34, 0.5);
+}
+
 .edit-btn:hover,
 .delete-btn:hover,
-.stock-btn:hover {
+.stock-btn:hover,
+.featured-btn:hover {
     transform: translateY(-2px);
 }
 
@@ -2201,27 +2213,7 @@ body {
     animation: fadeIn 0.5s ease-out;
 }
 
-/* Estados de carga */
-.loading {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 2rem;
-}
 
-.spinner {
-    width: 40px;
-    height: 40px;
-    border: 4px solid #f3f3f3;
-    border-top: 4px solid #916930;
-    border-radius: 50%;
-    animation: spin 1s linear infinite;
-}
-
-@keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
 
 /* Estilos para pedidos en admin */
 .orders-header {
