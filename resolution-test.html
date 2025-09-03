@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test de Resoluciones - Menús Hamburguesa</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        
+        .test-frame {
+            border: 2px solid #333;
+            margin: 20px 0;
+            overflow: hidden;
+        }
+        
+        .frame-label {
+            background: #333;
+            color: white;
+            padding: 10px;
+            margin: 0;
+            font-weight: bold;
+        }
+        
+        .frame-content {
+            width: 100%;
+            height: 300px;
+            border: none;
+        }
+        
+        .controls {
+            margin: 20px 0;
+            padding: 20px;
+            background: #f0f0f0;
+            border-radius: 5px;
+        }
+        
+        button {
+            padding: 10px 20px;
+            margin: 5px;
+            background: #007bff;
+            color: white;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+        
+        button:hover {
+            background: #0056b3;
+        }
+        
+        .info {
+            background: #e7f3ff;
+            padding: 15px;
+            border-left: 4px solid #007bff;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Test de Resoluciones - Menús Hamburguesa</h1>
+    
+    <div class="info">
+        <h3>Instrucciones:</h3>
+        <ul>
+            <li><strong>Móvil (≤768px):</strong> Solo debe aparecer el menú hamburguesa móvil</li>
+            <li><strong>Intermedio (769px-1380px):</strong> Solo debe aparecer el menú hamburguesa intermedio</li>
+            <li><strong>Escritorio (≥1381px):</strong> No debe aparecer ningún menú hamburguesa</li>
+        </ul>
+        <p><strong>Prueba:</strong> Haz clic en los botones de abajo para simular diferentes resoluciones y verifica que los menús aparezcan correctamente.</p>
+    </div>
+    
+    <div class="controls">
+        <h3>Simular Resoluciones:</h3>
+        <button onclick="setResolution(360, 'Móvil - 360px')">📱 Móvil (360px)</button>
+        <button onclick="setResolution(768, 'Móvil - 768px')">📱 Móvil (768px)</button>
+        <button onclick="setResolution(1024, 'Intermedio - 1024px')">💻 Intermedio (1024px)</button>
+        <button onclick="setResolution(1380, 'Intermedio - 1380px')">💻 Intermedio (1380px)</button>
+        <button onclick="setResolution(1920, 'Escritorio - 1920px')">🖥️ Escritorio (1920px)</button>
+        <button onclick="resetFrame()">🔄 Restablecer</button>
+    </div>
+    
+    <div class="test-frame">
+        <h3 class="frame-label" id="frameLabel">Vista Principal - Tamaño Completo</h3>
+        <iframe id="testFrame" class="frame-content" src="index.html"></iframe>
+    </div>
+    
+    <div class="controls">
+        <h3>Verificación Manual:</h3>
+        <p>También puedes redimensionar manualmente la ventana del navegador para probar:</p>
+        <ul>
+            <li>Ancho actual de la ventana: <span id="currentWidth">-</span>px</li>
+            <li>Resolución detectada: <span id="currentResolution">-</span></li>
+        </ul>
+    </div>
+    
+    <script>
+        function setResolution(width, label) {
+            const frame = document.getElementById('testFrame');
+            const frameLabel = document.getElementById('frameLabel');
+            
+            frame.style.width = width + 'px';
+            frameLabel.textContent = label;
+            
+            // Recargar el iframe para aplicar los nuevos estilos
+            frame.src = frame.src;
+        }
+        
+        function resetFrame() {
+            const frame = document.getElementById('testFrame');
+            const frameLabel = document.getElementById('frameLabel');
+            
+            frame.style.width = '100%';
+            frameLabel.textContent = 'Vista Principal - Tamaño Completo';
+            frame.src = frame.src;
+        }
+        
+        function updateCurrentResolution() {
+            const width = window.innerWidth;
+            document.getElementById('currentWidth').textContent = width;
+            
+            let resolution;
+            if (width <= 768) {
+                resolution = 'Móvil';
+            } else if (width <= 1380) {
+                resolution = 'Intermedio';
+            } else {
+                resolution = 'Escritorio';
+            }
+            
+            document.getElementById('currentResolution').textContent = resolution;
+        }
+        
+        // Actualizar información de resolución
+        window.addEventListener('resize', updateCurrentResolution);
+        window.addEventListener('load', updateCurrentResolution);
+        
+        // Actualizar cada segundo para capturar cambios
+        setInterval(updateCurrentResolution, 1000);
+    </script>
+</body>
+</html>

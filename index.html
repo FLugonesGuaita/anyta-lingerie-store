@@ -21,7 +21,9 @@
                     <span class="slogan">Elegancia que seduce</span>
                 </div>
             </div>
-            <nav class="nav-menu">
+            
+            <!-- Desktop Navigation -->
+            <nav class="nav-menu desktop-nav">
                 <ul>
                     <li><a href="#home">Inicio</a></li>
                     <li><a href="#productos">Productos</a></li>
@@ -29,18 +31,89 @@
                     <li><a href="#contacto">Contacto</a></li>
                 </ul>
             </nav>
+            
+            <!-- Intermediate Screen Navigation -->
+            <nav class="nav-menu intermediate-nav">
+                <ul>
+                    <li><a href="#productos">Productos</a></li>
+                    <li><a href="#categorias">Categorías</a></li>
+                </ul>
+            </nav>
+            
             <div class="nav-actions">
-                <div class="search-box">
+                <div class="search-box desktop-search">
                     <input type="text" id="searchInput" placeholder="Buscar productos...">
+                    <i class="fas fa-search"></i>
+                </div>
+                <div class="search-box intermediate-search">
+                    <input type="text" id="searchInputIntermediate" placeholder="Buscar productos...">
                     <i class="fas fa-search"></i>
                 </div>
                 <div class="cart-icon" onclick="toggleCart()">
                     <i class="fas fa-shopping-cart"></i>
                     <span class="cart-count" id="cartCount">0</span>
                 </div>
-                <button class="admin-btn" onclick="showLoginModal()">Admin</button>
+                <button class="admin-btn desktop-admin" onclick="showLoginModal()">Admin</button>
+                
+
+                
+                <!-- Intermediate Hamburger Button -->
+                <button class="intermediate-hamburger" onclick="toggleIntermediateMenu()" aria-label="Abrir menú intermedio">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                
+                <!-- Mobile Hamburger Menu -->
+                <button class="mobile-hamburger" onclick="toggleMobileMenu()" aria-label="Abrir menú móvil">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
             </div>
         </div>
+        
+        <!-- Mobile Navigation Menu -->
+        <nav class="mobile-nav" id="mobileNav">
+            <div class="mobile-nav-header">
+                <div class="mobile-nav-logo">
+                    <img src="hero-image.svg" alt="Anyta Lingerie" class="logo">
+                    <div class="mobile-brand-text">
+                        <h2>Anyta Lingerie</h2>
+                        <span class="mobile-slogan">Elegancia que seduce</span>
+                    </div>
+                </div>
+            </div>
+            <div class="mobile-search">
+                <input type="text" id="mobileSearchInput" placeholder="Buscar productos...">
+                <i class="fas fa-search"></i>
+            </div>
+            <ul>
+                <li><a href="#home" onclick="closeMobileMenu()">Inicio</a></li>
+                <li><a href="#productos" onclick="closeMobileMenu()">Productos</a></li>
+                <li><a href="#categorias" onclick="closeMobileMenu()">Categorías</a></li>
+                <li><a href="#contacto" onclick="closeMobileMenu()">Contacto</a></li>
+                <li><a href="#" onclick="showLoginModal(); closeMobileMenu();">Admin</a></li>
+            </ul>
+        </nav>
+        
+        <!-- Intermediate Navigation Menu -->
+        <nav class="intermediate-nav-menu" id="intermediateNav">
+            <div class="intermediate-nav-header">
+                <img src="hero-image.svg" alt="Anyta Lingerie" class="intermediate-nav-logo">
+                <div class="intermediate-nav-brand">
+                    <h2>Anyta Lingerie</h2>
+                    <p>Elegancia y sensualidad</p>
+                </div>
+            </div>
+            <ul>
+                <li><a href="#home" onclick="closeIntermediateMenu()">Inicio</a></li>
+                <li><a href="#contacto" onclick="closeIntermediateMenu()">Contacto</a></li>
+                <li><a href="#" onclick="showLoginModal(); closeIntermediateMenu();" class="admin-link">Admin</a></li>
+            </ul>
+
+        </nav>
+
     </header>
 
     <!-- Hero Section -->
@@ -645,5 +718,7 @@
     </div>
 
     <script src="script.js"></script>
+    <script src="mobile-menu.js"></script>
+    <script src="debug.js"></script>
 </body>
 </html>

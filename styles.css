@@ -269,6 +269,447 @@ body {
     box-shadow: 0 4px 15px rgba(0,0,0,0.2);
 }
 
+/* Mobile Navigation */
+.hamburger-btn {
+    display: none;
+    flex-direction: column;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    gap: 4px;
+}
+
+.hamburger-btn span {
+    width: 25px;
+    height: 3px;
+    background: white;
+    transition: all 0.3s ease;
+    border-radius: 2px;
+}
+
+.hamburger-btn.active span:nth-child(1) {
+    transform: rotate(45deg) translate(6px, 6px);
+}
+
+.hamburger-btn.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger-btn.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -6px);
+}
+
+/* Hide intermediate elements by default */
+.intermediate-nav,
+.intermediate-search {
+    display: none;
+}
+
+/* Hamburger menu base styles */
+/* Hamburger menu styles will be recreated */
+
+/* Mobile Hamburger Button */
+.mobile-hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.mobile-hamburger:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.mobile-hamburger span {
+    display: block;
+    width: 24px;
+    height: 3px;
+    background-color: #fff;
+    margin: 3px 0;
+    transition: 0.3s;
+    border-radius: 2px;
+}
+
+.mobile-hamburger.active span:nth-child(1) {
+    transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.mobile-hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.mobile-hamburger.active span:nth-child(3) {
+    transform: rotate(45deg) translate(-5px, -6px);
+}
+
+/* Mobile Navigation Menu */
+.mobile-nav {
+    position: fixed;
+    top: 80px;
+    right: 0;
+    width: 300px;
+    max-height: calc(100vh - 80px);
+    background: linear-gradient(135deg, #F7C57E 0%, #D19849 50%, #916930 100%);
+    box-shadow: -2px 2px 15px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    transform: translateX(100%);
+    transition: transform 0.3s ease-in-out;
+    overflow-y: auto;
+    border-radius: 8px 0 0 8px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.mobile-nav.show {
+    transform: translateX(0);
+}
+
+.mobile-nav-header {
+    padding: 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    background: rgba(145, 105, 48, 0.2);
+}
+
+.mobile-nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.mobile-nav-logo .logo {
+    width: 40px;
+    height: 40px;
+}
+
+.mobile-brand-text h2 {
+    color: #fff;
+    font-size: 1.2rem;
+    margin: 0;
+    font-weight: 600;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.mobile-slogan {
+    color: #fff;
+    font-size: 0.8rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+    opacity: 0.8;
+}
+
+.mobile-search {
+    padding: 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+}
+
+.mobile-search input {
+    width: 100%;
+    padding: 12px 40px 12px 15px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 25px;
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+
+.mobile-search input::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.mobile-search i {
+    position: absolute;
+    right: 35px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #fff;
+    cursor: pointer;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.mobile-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.mobile-nav li {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.mobile-nav li:last-child {
+    border-bottom: none;
+}
+
+.mobile-nav a {
+    display: block;
+    padding: 18px 20px;
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.mobile-nav a:hover {
+    background: rgba(255, 255, 255, 0.2);
+    color: #fff;
+    padding-left: 30px;
+    transform: translateX(5px);
+}
+
+/* Intermediate Hamburger Button */
+.intermediate-hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 30px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 1001;
+}
+
+.intermediate-hamburger span {
+    display: block;
+    height: 3px;
+    width: 100%;
+    background: #d4af37;
+    border-radius: 3px;
+    opacity: 1;
+    left: 0;
+    transform: rotate(0deg);
+    transition: .25s ease-in-out;
+}
+
+.intermediate-hamburger.active span:nth-child(1) {
+    top: 9px;
+    transform: rotate(135deg);
+}
+
+.intermediate-hamburger.active span:nth-child(2) {
+    opacity: 0;
+    left: -60px;
+}
+
+.intermediate-hamburger.active span:nth-child(3) {
+    top: 9px;
+    transform: rotate(-135deg);
+}
+
+/* Intermediate Navigation Menu */
+.intermediate-nav-menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 350px;
+    height: 100vh;
+    background: linear-gradient(135deg, #F7C57E 0%, #D19849 50%, #916930 100%);
+    z-index: 1000;
+    transition: right 0.3s ease;
+    overflow-y: auto;
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.3);
+    font-family: 'Poppins', sans-serif;
+}
+
+.intermediate-nav-menu.show {
+    right: 0;
+}
+
+.intermediate-nav-header {
+    display: flex;
+    align-items: center;
+    padding: 30px 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    background: rgba(145, 105, 48, 0.2);
+}
+
+.intermediate-nav-logo {
+    width: 50px;
+    height: 50px;
+    margin-right: 15px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.intermediate-nav-brand h2 {
+    color: #fff;
+    font-size: 20px;
+    margin: 0 0 5px 0;
+    font-weight: 600;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.intermediate-nav-brand p {
+    color: #fff;
+    font-size: 12px;
+    margin: 0;
+    font-style: italic;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.intermediate-nav-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+}
+
+.intermediate-nav-menu li {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.intermediate-nav-menu li:last-child {
+    border-bottom: none;
+}
+
+.intermediate-nav-menu a {
+    display: block;
+    padding: 18px 20px;
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.intermediate-nav-menu a:hover {
+    background: rgba(255, 255, 255, 0.2);
+    color: #fff;
+    padding-left: 30px;
+    transform: translateX(5px);
+}
+
+.intermediate-nav-actions {
+    padding: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+    text-align: center;
+}
+
+.intermediate-nav-actions .cart-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    background: #fff;
+    color: #916930;
+    border-radius: 50%;
+    text-decoration: none;
+    font-size: 18px;
+    transition: all 0.3s ease;
+    position: relative;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.intermediate-nav-actions .cart-icon:hover {
+    background: #fff;
+    transform: scale(1.1);
+}
+
+.intermediate-nav-actions .cart-count {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background: #e74c3c;
+    color: white;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+/* Tablet and Medium Desktop Styles */
+@media (min-width: 769px) and (max-width: 1380px) {
+    .header {
+        padding: 1.5rem 0;
+    }
+    
+    .header .container {
+        padding: 0 1.5rem;
+        gap: 1.5rem;
+    }
+    
+    .logo {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .nav-brand h1 {
+        font-size: 1.6rem;
+    }
+    
+    .nav-brand .slogan {
+        font-size: 0.8rem;
+    }
+    
+    /* Hide desktop navigation and show intermediate */
+    .desktop-nav {
+        display: none;
+    }
+    
+    .intermediate-nav {
+        display: flex;
+    }
+    
+    .intermediate-nav ul {
+        gap: 1.5rem;
+    }
+    
+    .intermediate-nav a {
+        font-size: 1rem;
+        padding: 0.8rem 1.2rem;
+    }
+    
+    /* Hide desktop search and show intermediate */
+    .desktop-search {
+        display: none;
+    }
+    
+    .intermediate-search {
+        display: flex;
+    }
+    
+    .intermediate-search input {
+        width: 180px;
+        padding: 10px 35px 10px 15px;
+    }
+    
+    .intermediate-search input:focus {
+        width: 220px;
+    }
+    
+    /* Hide desktop admin button */
+    .desktop-admin {
+        display: none;
+    }
+    
+    /* Show intermediate hamburger, hide mobile hamburger */
+    .intermediate-hamburger {
+        display: flex !important;
+    }
+    
+    .mobile-hamburger {
+        display: none !important;
+    }
+
+}
+
 /* Desktop Styles */
 @media (min-width: 1200px) {
     .hero {
@@ -278,6 +719,111 @@ body {
     .hero-image img {
         max-height: 500px;
         min-height: 300px;
+    }
+}
+
+/* Desktop Styles - Hide intermediate elements */
+@media (min-width: 1381px) {
+    /* Show desktop elements */
+    .desktop-nav,
+    .desktop-search,
+    .desktop-admin {
+        display: flex;
+    }
+    
+    /* Hide intermediate elements */
+    .intermediate-nav,
+    .intermediate-search {
+        display: none;
+    }
+    
+    /* Hide all hamburger buttons on desktop */
+    .intermediate-hamburger,
+    .mobile-hamburger {
+        display: none !important;
+    }
+}
+
+/* Tablets */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .container {
+        padding: 0 1.5rem;
+    }
+    
+    .header .container {
+        gap: 1rem;
+    }
+    
+    .nav-menu {
+        gap: 1rem;
+    }
+    
+    .nav-menu a {
+        padding: 0.6rem 1rem;
+        font-size: 0.9rem;
+    }
+    
+    .search-box input {
+        width: 180px;
+    }
+    
+    .search-box input:focus {
+        width: 220px;
+    }
+    
+    .hero-content h2 {
+        font-size: 2.2rem;
+    }
+    
+    .hero-content p {
+        font-size: 1rem;
+    }
+    
+    .categories {
+        padding: 3rem 0;
+    }
+    
+    .category-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1.5rem;
+    }
+    
+    .products-grid {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 1.5rem;
+    }
+    
+    .product-card {
+        max-width: 280px;
+    }
+    
+    .modal-content {
+        width: 80%;
+        max-width: 600px;
+    }
+    
+    .admin-content {
+        padding: 2rem;
+    }
+    
+    .admin-tabs {
+        gap: 1rem;
+    }
+    
+    .tab-btn {
+        padding: 0.8rem 1.5rem;
+    }
+    
+    .admin-product-item {
+        padding: 1.5rem;
+    }
+    
+    .admin-product-actions {
+        gap: 0.8rem;
+    }
+    
+    .admin-product-actions button {
+        padding: 8px 16px;
     }
 }
 
@@ -385,13 +931,75 @@ body {
     }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 768px) {
+    /* Header optimizations for mobile */
     .header {
-        padding: 0.8rem 0;
+        padding: 0.5rem 0;
     }
     
     .header .container {
+        grid-template-columns: auto 1fr auto;
+        gap: 1rem;
         padding: 0 1rem;
+    }
+    
+    .logo {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .nav-brand h1 {
+        font-size: 1.2rem;
+        letter-spacing: 1px;
+    }
+    
+    .nav-brand .slogan {
+        font-size: 0.7rem;
+    }
+    
+    /* Hide desktop and intermediate elements */
+    .desktop-nav,
+    .intermediate-nav,
+    .desktop-search,
+    .intermediate-search,
+    .desktop-admin {
+        display: none;
+    }
+    
+    /* Hide intermediate menu */
+    .intermediate-nav-menu {
+        display: none !important;
+    }
+    
+    /* Show only mobile hamburger */
+    .mobile-hamburger {
+        display: flex !important;
+    }
+    
+    .intermediate-hamburger {
+        display: none !important;
+    }
+    
+    /* Show mobile menu when active */
+    .mobile-nav {
+        display: block;
+    }
+    
+    /* Adjust hero to account for smaller header */
+    .hero {
+        margin-top: 70px;
+        padding: 2rem 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .header {
+        padding: 0.4rem 0;
+    }
+    
+    .header .container {
+        padding: 0 0.8rem;
+        gap: 0.8rem;
     }
     
     .logo {
@@ -400,36 +1008,27 @@ body {
     }
 
     .nav-brand h1 {
-        font-size: 1.3rem;
-        letter-spacing: 1px;
+        font-size: 1rem;
+        letter-spacing: 0.5px;
     }
 
     .nav-brand .slogan {
-        font-size: 0.75rem;
+        display: none;
     }
     
-    .nav-menu ul {
-        gap: 0.5rem;
-        flex-wrap: wrap;
+    .hamburger-btn {
+        padding: 6px;
     }
     
-    .nav-menu a {
-        font-size: 0.9rem;
-        padding: 0.5rem 0.8rem;
+    .hamburger-btn span {
+        width: 20px;
+        height: 2px;
     }
     
-    .search-box input {
-        width: 140px;
-        padding: 10px 35px 10px 15px;
-    }
-    
-    .search-box input:focus {
-        width: 180px;
-    }
-    
-    .admin-btn {
-        padding: 10px 16px;
-        font-size: 0.9rem;
+    /* Adjust hero for very small screens */
+    .hero {
+        margin-top: 60px;
+        padding: 1.5rem 0;
     }
 }
 
@@ -1956,6 +2555,43 @@ body {
     overflow-y: auto;
 }
 
+.checkout-modal .close {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 28px;
+    font-weight: bold;
+    color: #666;
+    cursor: pointer;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    z-index: 1;
+}
+
+.checkout-modal .close:hover {
+    color: #333;
+    background: rgba(255, 255, 255, 1);
+    transform: scale(1.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+}
+
+.checkout-modal h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    color: #916930;
+    margin-bottom: 2rem;
+    margin-top: 0;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
 .checkout-section {
     margin-bottom: 30px;
     padding-bottom: 20px;
@@ -2171,6 +2807,83 @@ body {
         flex-direction: column;
         text-align: center;
     }
+    
+    /* Optimización de modales para móviles */
+    .modal-content {
+        width: 95%;
+        margin: 2.5% auto;
+        max-height: 95vh;
+    }
+    
+    .modal-header {
+        padding: 1rem;
+    }
+    
+    .modal-header h3 {
+        font-size: 1.1rem;
+    }
+    
+    .modal form {
+        padding: 1.5rem;
+    }
+    
+    .form-group {
+        margin-bottom: 1rem;
+    }
+    
+    .form-group label {
+        font-size: 0.9rem;
+    }
+    
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        padding: 0.8rem;
+        font-size: 0.9rem;
+    }
+    
+    .form-actions {
+        gap: 0.5rem;
+    }
+    
+    .form-actions button {
+        padding: 0.8rem 1.5rem;
+        font-size: 0.9rem;
+    }
+    
+    /* Admin panel optimizations */
+    .admin-header {
+        padding: 1rem;
+    }
+    
+    .admin-header h2 {
+        font-size: 1.3rem;
+    }
+    
+    .admin-content {
+        padding: 1rem;
+    }
+    
+    .admin-tabs {
+        gap: 0.5rem;
+        flex-wrap: wrap;
+    }
+    
+    .tab-btn {
+        padding: 0.8rem 1rem;
+        font-size: 0.9rem;
+    }
+    
+    .admin-product-actions {
+        gap: 0.3rem;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .admin-product-actions button {
+        padding: 6px 12px;
+        font-size: 0.8rem;
+    }
 }
 
 @media (max-width: 480px) {
@@ -2201,10 +2914,346 @@ body {
         font-size: 2rem;
         margin-bottom: 2rem;
     }
+    
+    /* Optimizaciones adicionales para móviles */
+    .nav-brand h1 {
+        font-size: 1.2rem;
+        letter-spacing: 1px;
+    }
+    
+    .nav-brand .slogan {
+        font-size: 0.7rem;
+    }
+    
+    .nav-menu ul {
+        gap: 0.5rem;
+        flex-wrap: wrap;
+    }
+    
+    .nav-menu a {
+        font-size: 0.9rem;
+        padding: 0.5rem 0.8rem;
+    }
+    
+    .search-box input {
+        width: 140px;
+        font-size: 0.9rem;
+    }
+    
+    .search-box input:focus {
+        width: 180px;
+    }
+    
+    .hero-content h2 {
+        font-size: 1.8rem;
+        line-height: 1.2;
+    }
+    
+    .hero-content p {
+        font-size: 1rem;
+    }
+    
+    .btn {
+        padding: 0.8rem 1.5rem;
+        font-size: 0.9rem;
+    }
+    
+    .product-card {
+        margin-bottom: 1rem;
+    }
+    
+    .product-image img {
+        height: 200px;
+    }
+    
+    .product-info {
+        padding: 1rem;
+    }
+    
+    .product-name {
+        font-size: 1rem;
+    }
+    
+    .product-price {
+         font-size: 1.1rem;
+     }
+ }
+
+/* Pantallas muy pequeñas */
+@media (max-width: 400px) {
+    .container {
+        padding: 0 8px;
+    }
+    
+    .header {
+        padding: 0.5rem 0;
+    }
+    
+    .header .container {
+        gap: 0.5rem;
+    }
+    
+    .logo {
+        width: 30px;
+        height: 30px;
+    }
+    
+    .nav-brand h1 {
+        font-size: 1rem;
+    }
+    
+    .nav-brand .slogan {
+        display: none;
+    }
+    
+    .nav-menu a {
+        font-size: 0.8rem;
+        padding: 0.4rem 0.6rem;
+    }
+    
+    .search-box input {
+        width: 120px;
+        padding: 0.4rem 0.8rem;
+    }
+    
+    .search-box input:focus {
+        width: 150px;
+    }
+    
+    .nav-actions {
+        gap: 0.3rem;
+    }
+    
+    .nav-actions .btn {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.8rem;
+    }
+    
+    .hero-content h2 {
+        font-size: 1.5rem;
+    }
+    
+    .hero-content p {
+        font-size: 0.9rem;
+    }
+    
+    .category-card h3 {
+        font-size: 1rem;
+    }
+    
+    .product-info {
+        padding: 0.8rem;
+    }
+    
+    .product-name {
+        font-size: 0.9rem;
+    }
+    
+    .product-price {
+        font-size: 1rem;
+    }
+    
+    .btn {
+         padding: 0.6rem 1.2rem;
+         font-size: 0.8rem;
+     }
+     
+     /* Modales en pantallas muy pequeñas */
+     .modal-content {
+         width: 98%;
+         margin: 1% auto;
+         max-height: 98vh;
+     }
+     
+     .modal-header {
+         padding: 0.8rem;
+     }
+     
+     .modal-header h3 {
+         font-size: 1rem;
+     }
+     
+     .close-modal {
+         font-size: 1rem;
+     }
+     
+     .modal form {
+         padding: 1rem;
+     }
+     
+     .form-group {
+         margin-bottom: 0.8rem;
+     }
+     
+     .form-group label {
+         font-size: 0.8rem;
+         margin-bottom: 0.3rem;
+     }
+     
+     .form-group input,
+     .form-group select,
+     .form-group textarea {
+         padding: 0.6rem;
+         font-size: 0.8rem;
+     }
+     
+     .form-actions {
+         gap: 0.3rem;
+         flex-direction: column;
+     }
+     
+     .form-actions button {
+         padding: 0.6rem 1rem;
+         font-size: 0.8rem;
+         width: 100%;
+     }
+     
+     /* Admin panel en pantallas muy pequeñas */
+     .admin-header {
+         padding: 0.8rem;
+         flex-direction: column;
+         gap: 0.5rem;
+         text-align: center;
+     }
+     
+     .admin-header h2 {
+         font-size: 1.1rem;
+     }
+     
+     .close-admin {
+         font-size: 1.2rem;
+     }
+     
+     .admin-content {
+         padding: 0.8rem;
+     }
+     
+     .admin-tabs {
+         gap: 0.3rem;
+         justify-content: center;
+     }
+     
+     .tab-btn {
+         padding: 0.6rem 0.8rem;
+         font-size: 0.8rem;
+         flex: 1;
+         min-width: 0;
+     }
+     
+     .admin-product-item {
+         padding: 0.8rem;
+     }
+     
+     .admin-product-info {
+         margin-bottom: 0.8rem;
+     }
+     
+     .admin-product-name {
+         font-size: 0.9rem;
+     }
+     
+     .admin-product-details {
+         font-size: 0.8rem;
+     }
+     
+     .admin-product-actions {
+         gap: 0.2rem;
+     }
+     
+     .admin-product-actions button {
+         padding: 4px 8px;
+         font-size: 0.7rem;
+         min-width: 60px;
+     }
+ }
+
+/* Mejoras para navegación táctil */
+@media (hover: none) and (pointer: coarse) {
+    /* Aumentar área de toque para botones */
+    .btn,
+    .nav-menu a,
+    .category-card,
+    .product-card,
+    .cart-item-remove,
+    .close-modal,
+    .close-admin,
+    .tab-btn {
+        min-height: 44px;
+        min-width: 44px;
+    }
+    
+    /* Mejorar botones de navegación */
+    .nav-menu a {
+        padding: 0.8rem 1.2rem;
+        margin: 0.2rem;
+    }
+    
+    /* Botones de acción más grandes */
+    .nav-actions .btn {
+        padding: 0.8rem 1.5rem;
+    }
+    
+    /* Mejorar botones del carrito */
+    .cart-item-quantity button {
+        min-height: 40px;
+        min-width: 40px;
+        padding: 0.5rem;
+    }
+    
+    /* Botones de productos más accesibles */
+    .product-card .btn {
+        padding: 0.8rem 1.5rem;
+        margin-top: 0.5rem;
+    }
+    
+    /* Mejorar controles del admin */
+    .admin-product-actions button {
+        min-height: 40px;
+        padding: 0.6rem 1rem;
+        margin: 0.2rem;
+    }
+    
+    /* Tabs más grandes */
+    .tab-btn {
+        padding: 1rem 1.5rem;
+    }
+    
+    /* Mejorar formularios */
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        min-height: 44px;
+        padding: 0.8rem;
+    }
+    
+    /* Botones de cierre más grandes */
+    .close-modal,
+    .close-admin {
+        width: 44px;
+        height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    /* Eliminar hover effects en dispositivos táctiles */
+    .product-card:hover,
+    .category-card:hover,
+    .btn:hover {
+        transform: none;
+    }
+    
+    /* Mejorar feedback táctil */
+    .btn:active,
+    .product-card:active,
+    .category-card:active {
+        transform: scale(0.98);
+        transition: transform 0.1s ease;
+    }
 }
 
 /* Animaciones */
-@keyframes fadeIn {
+@keyframes fadeInUp {
     from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
 }

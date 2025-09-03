@@ -412,6 +412,7 @@ function addToCart(productId) {
 
 function updateCartUI() {
     const cartCount = document.getElementById('cartCount');
+    const intermediateCartCount = document.getElementById('intermediateCartCount');
     const cartItems = document.getElementById('cartItems');
     const subtotalElement = document.getElementById('cartSubtotal');
     const shippingCostElement = document.getElementById('shippingAmount');
@@ -421,6 +422,9 @@ function updateCartUI() {
     const subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
     
     cartCount.textContent = totalItems;
+    if (intermediateCartCount) {
+        intermediateCartCount.textContent = totalItems;
+    }
     
     if (cart.length === 0) {
         cartItems.innerHTML = '<div class="empty-cart"><p>Tu carrito está vacío</p></div>';
