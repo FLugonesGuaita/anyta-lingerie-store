@@ -271,6 +271,13 @@ function setupEventListeners() {
     // Formularios
     document.getElementById('loginForm').addEventListener('submit', handleLogin);
     document.getElementById('productForm').addEventListener('submit', handleProductForm);
+    
+    // Event listener para actualizar checkout cuando se cambie la dirección
+    document.addEventListener('input', function(e) {
+        if (e.target.id === 'address') {
+            updateCheckoutSummary();
+        }
+    });
 }
 
 // Funciones de productos
@@ -451,16 +458,15 @@ function updateCartUI() {
         subtotalElement.textContent = subtotal.toFixed(2);
     }
     
-    // Calcular envío estimado (se actualizará en el checkout)
-    const estimatedShipping = storeConfig.shippingRates.base;
-    if (shippingCostElement) {
-        shippingCostElement.textContent = estimatedShipping;
+    // En el carrito no mostramos costo de envío, solo en el checkout
+    const shippingCostDiv = document.getElementById('shippingCost');
+    if (shippingCostDiv) {
+        shippingCostDiv.style.display = 'none';
     }
     
-    // Total final
-    const totalFinal = subtotal + estimatedShipping;
+    // Total final es igual al subtotal en el carrito
     if (totalFinalElement) {
-        totalFinalElement.textContent = totalFinal.toFixed(2);
+        totalFinalElement.textContent = subtotal.toFixed(2);
     }
 }
 
@@ -1307,9 +1313,12 @@ function updateCheckoutSummary() {
     
     document.getElementById('checkoutSubtotal').textContent = subtotal.toFixed(2);
     
-    // Calcular envío si hay dirección
-    const address = document.getElementById('shippingAddress').value;
-    if (address.trim()) {
+    // Verificar método de entrega seleccionado
+    const deliveryMethod = document.querySelector('input[name="delivery"]:checked')?.value;
+    const address = document.getElementById('address')?.value;
+    
+    // Calcular envío solo si es entrega a domicilio Y hay dirección
+    if (deliveryMethod === 'home' && address && address.trim()) {
         const shipping = calculateShipping(address);
         const shippingElement = document.getElementById('checkoutShipping');
         const shippingLine = document.getElementById('checkoutShippingLine');
@@ -1320,6 +1329,7 @@ function updateCheckoutSummary() {
         const total = subtotal + parseFloat(shipping.cost);
         document.getElementById('checkoutTotal').textContent = total.toFixed(2);
     } else {
+        // Sin envío (retiro en tienda o sin dirección)
         const shippingLine = document.getElementById('checkoutShippingLine');
         if (shippingLine) shippingLine.style.display = 'none';
         document.getElementById('checkoutTotal').textContent = subtotal.toFixed(2);
@@ -1447,16 +1457,21 @@ function closeCheckoutModal() {
 function updateDeliveryMethod() {
     const deliveryMethod = document.querySelector('input[name="delivery"]:checked').value;
     const addressSection = document.getElementById('addressSection');
+    const addressInput = document.getElementById('address');
     
     if (deliveryMethod === 'home') {
         addressSection.style.display = 'block';
     } else {
         addressSection.style.display = 'none';
+        // Limpiar dirección cuando se selecciona retiro en tienda
+        if (addressInput) {
+            addressInput.value = '';
+        }
     }
     
     // Actualizar resumen si está visible
     if (document.getElementById('checkoutModal').classList.contains('show')) {
-        updateOrderSummary();
+        updateCheckoutSummary();
     }
 }
 
