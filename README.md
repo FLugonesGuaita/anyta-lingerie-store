@@ -186,8 +186,8 @@ El marketplace utiliza `localStorage` del navegador para:
 Edita las variables CSS en `styles.css`:
 ```css
 :root {
-  --primary-color: #ff6b9d;
-  --secondary-color: #c44569;
+  --primary-color: #F7C57E;
+--secondary-color: #916930;
   --accent-color: #ff4757;
 }
 ```

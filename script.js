@@ -58,37 +58,172 @@ function initializeApp() {
                 name: 'Conjuntos',
                 slug: 'conjuntos',
                 description: 'Sets completos de lencería',
-                image: 'category-conjuntos.jpg'
+                image: 'https://www.shutterstock.com/image-photo/closeup-womans-torso-beige-lingerie-600nw-2535496789.jpg'
             },
             {
                 id: 2,
                 name: 'Bodys',
                 slug: 'bodys',
                 description: 'Piezas únicas tipo body',
-                image: 'category-bodys.jpg'
+                image: 'https://www.shutterstock.com/image-photo/cropped-image-slim-female-body-600nw-2165963211.jpg'
             },
             {
                 id: 3,
                 name: 'Lencería Nocturna',
                 slug: 'lenceria-nocturna',
                 description: 'Camisones y pijamas elegantes',
-                image: 'category-nocturna.jpg'
+                image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRhBmS8WG6rytJYdM4WBD09itkFYHDAtzdIzA&s'
             },
             {
                 id: 4,
-                name: 'Accesorios',
-                slug: 'accesorios',
-                description: 'Medias, ligueros y complementos',
-                image: 'category-accesorios.jpg'
+                name: 'Pijamas',
+                slug: 'pijamas',
+                description: 'Pijamas y conjuntos para dormir',
+                image: 'https://i5.walmartimages.com/asr/db6a745a-95e6-4637-80cf-6ea9812519d6.a337408d60205dfd514d9d2f1739c6b2.jpeg?odnHeight=612&odnWidth=612&odnBg=FFFFFF'
             }
         ];
         saveCategories();
     }
 
-    // Cargar productos desde localStorage
+    // Cargar productos desde localStorage o usar predeterminados
     const savedProducts = localStorage.getItem('products');
     if (savedProducts) {
         products = JSON.parse(savedProducts);
+    } else {
+        // Productos predeterminados
+        products = [
+            {
+                id: 1,
+                name: 'Conjunto con aro y puntilla - Velvet',
+                price: 14339.5,
+                purchasePrice: 8500,
+                margin: 68.7,
+                category: 'conjuntos',
+                stock: 25,
+                description: 'Conjunto de puntilla y encaje, compuesto por corpiño con aro y colaless, Marca VELVET. \n\nBreteles regulables, ganchitos metálicos. Composición: 80% poliamida y 20% Elastano.',
+                image: 'https://www.lenceriamoda.com/images/products_gallery/64404ad37e340093654299.jpg',
+                sizes: ['85', '90', '95', '100'],
+                featured: false
+            },
+            {
+                id: 2,
+                name: 'CONJUNTO TRIANGULITO SOFT DE ALGODÓN LYCRA C/ COLA LESS',
+                price: 9881.999999999998,
+                purchasePrice: 4500,
+                margin: 119.6,
+                category: 'conjuntos',
+                stock: 15,
+                description: 'Colores: BLANCO - VERDE INGLES - ROSA VINTAGE - GRIS CLARO - NEGRO',
+                image: 'https://www.nadinlenceria.com/post2/img6872.jpg',
+                sizes: ['85', '90', '95', '100'],
+                featured: false
+            },
+            {
+                id: 3,
+                name: 'Conjunto con aro de microfibra y puntilla con tiro corto.',
+                price: 10517,
+                purchasePrice: 6500,
+                margin: 61.8,
+                category: 'conjuntos',
+                stock: 18,
+                description: 'Conjunto con aro de microfibra y puntilla con tiro corto.',
+                image: 'https://www.michilenceria.com.ar/post/9601.jpg',
+                sizes: ['85', '90', '95', '100'],
+                featured: false
+            },
+            {
+                id: 4,
+                name: 'Body Mujer Reductor Modelante Lenceria',
+                price: 27683.999999999996,
+                purchasePrice: 18000,
+                margin: 53.8,
+                category: 'bodys',
+                stock: 20,
+                description: 'Corte Vedetina .Reduce 1 talle. Modela y comprime el abdomen. Realza busto y glúteos. Breteles desmontables y regulables. Broche inferior.',
+                image: 'https://http2.mlstatic.com/D_NQ_NP_844207-MLA85603963843_062025-O.webp',
+                sizes: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL'],
+                featured: false
+            },
+            {
+                id: 5,
+                name: 'Body Modelador Reductor Colaless Lenceria Urbana Beige',
+                price: 29900.000000000004,
+                purchasePrice: 20000,
+                margin: 49.5,
+                category: 'bodys',
+                stock: 15,
+                description: 'Composición: Microfibra\nTipo de manga: Musculosa\n',
+                image: 'https://http2.mlstatic.com/D_NQ_NP_870898-MLA89750260330_082025-O.webp',
+                sizes: ['S', 'M', 'L', 'XL'],
+                featured: false
+            },
+            {
+                id: 6,
+                name: 'Faja Body Moldeadora Reductora Con Broche Lencería Sky Beige Xl / Xxl',
+                price: 24992,
+                purchasePrice: 16000,
+                margin: 56.2,
+                category: 'bodys',
+                stock: 10,
+                description: 'Material principal: Poliamida\nFunciones de la faja reductora: reducir tallas, moldear figura',
+                image: 'https://http2.mlstatic.com/D_NQ_NP_668049-MLA84825127528_052025-O.webp',
+                sizes: ['M/L', 'XL/XXL'],
+                featured: false
+            },
+            {
+                id: 7,
+                name: 'Conjunto Lenceria Erotica Ropa Interior Sexy Encaje',
+                price: 22890,
+                purchasePrice: 15000,
+                margin: 52.6,
+                category: 'lenceria-nocturna',
+                stock: 25,
+                description: 'Corpiño bajo busto con encaje, abertura en pechos y arnés en pecho + tanguita de encaje con abertura.\n(NO incluye pezoneras)',
+                image: 'https://i5.walmartimages.com/asr/727f41e9-0f06-4122-921c-40d1bfd255e9.a092dd4bd4f4248137dd6292c6b3c72d.jpeg?odnHeight=612&odnWidth=612&odnBg=FFFFFF',
+                sizes: ['85', '90', '95', '100'],
+                featured: false
+            },
+            {
+                id: 8,
+                name: 'Babydoll Lenceria Encaje Beige Pijama',
+                price: 16400,
+                purchasePrice: 5000,
+                margin: 228,
+                category: 'pijamas',
+                stock: 30,
+                description: 'Material: Fibra de poliester',
+                image: 'https://http2.mlstatic.com/D_NQ_NP_722723-MLM28506104021_102018-O-babydoll-lenceria-encaje-beige-pijama-r565.webp',
+                sizes: ['Único'],
+                featured: false
+            },
+            {
+                id: 9,
+                name: 'Conjuntos de pijama de encaje Sexy para mujer, Tops cortos, camisola, pantalones cortos',
+                price: 15000,
+                purchasePrice: 10000,
+                margin: 50,
+                category: 'pijamas',
+                stock: 30,
+                description: 'Conjuntos de pijama de encaje Sexy para mujer, Tops cortos, camisola, pantalones cortos',
+                image: 'https://img.bestdealplus.com/ae04/kf/H8c0080ace5a44163aae94645aff7d12dM.jpg',
+                sizes: ['XS', 'S', 'M', 'L', 'XL', 'XXL'],
+                featured: false
+            },
+            {
+                id: 10,
+                name: 'Donatella - Pijama Camisero Largo Beige',
+                price: 36000,
+                purchasePrice: 18000,
+                margin: 100,
+                category: 'pijamas',
+                stock: 10,
+                description: 'Pijama de manga larga en tejido súper soft. Si de comodidad hablamos, este pijama es el indicado. Camisa con detalle en vivo y pantalón haciendo juego. Estar linda y cómoda en casa es posible; una vez que te lo pruebes te vas a enamorar! De la colección #SoftCollection elaborada con fibras naturales y suaves materiales para brindarte confort y belleza en tu día a día.',
+                image: 'https://www.jibona.com/images/thumbs/0008248_donatella-pijama-camisero-largo-beige_1170.jpeg',
+                sizes: ['S', 'M', 'L'],
+                featured: false
+            }
+        ];
+        saveProducts();
     }
 
     // Cargar carrito guardado
@@ -271,9 +406,9 @@ function addToCart(productId) {
 function updateCartUI() {
     const cartCount = document.getElementById('cartCount');
     const cartItems = document.getElementById('cartItems');
-    const subtotalElement = document.getElementById('subtotal');
-    const shippingCostElement = document.getElementById('shipping-cost');
-    const totalFinalElement = document.getElementById('total-final');
+    const subtotalElement = document.getElementById('cartSubtotal');
+    const shippingCostElement = document.getElementById('shippingAmount');
+    const totalFinalElement = document.getElementById('cartTotal');
     
     const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
     const subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
@@ -282,9 +417,9 @@ function updateCartUI() {
     
     if (cart.length === 0) {
         cartItems.innerHTML = '<div class="empty-cart"><p>Tu carrito está vacío</p></div>';
-        if (subtotalElement) subtotalElement.textContent = '$0';
-        if (shippingCostElement) shippingCostElement.textContent = '$0';
-        if (totalFinalElement) totalFinalElement.textContent = '$0';
+        if (subtotalElement) subtotalElement.textContent = '0.00';
+        if (shippingCostElement) shippingCostElement.textContent = '0';
+        if (totalFinalElement) totalFinalElement.textContent = '0.00';
         return;
     }
     
@@ -313,19 +448,19 @@ function updateCartUI() {
     
     // Actualizar subtotal
     if (subtotalElement) {
-        subtotalElement.textContent = `$${subtotal.toFixed(2)}`;
+        subtotalElement.textContent = subtotal.toFixed(2);
     }
     
     // Calcular envío estimado (se actualizará en el checkout)
     const estimatedShipping = storeConfig.shippingRates.base;
     if (shippingCostElement) {
-        shippingCostElement.textContent = `$${estimatedShipping}`;
+        shippingCostElement.textContent = estimatedShipping;
     }
     
     // Total final
     const totalFinal = subtotal + estimatedShipping;
     if (totalFinalElement) {
-        totalFinalElement.textContent = `$${totalFinal.toFixed(2)}`;
+        totalFinalElement.textContent = totalFinal.toFixed(2);
     }
 }
 
@@ -929,7 +1064,7 @@ function printOrderDetails() {
                 <style>
                     body { font-family: Arial, sans-serif; margin: 20px; }
                     .order-details-section { margin-bottom: 20px; }
-                    .order-details-section h4 { color: #2c3e50; border-bottom: 1px solid #eee; padding-bottom: 5px; }
+                    .order-details-section h4 { color: #916930; border-bottom: 1px solid #eee; padding-bottom: 5px; }
                     .details-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
                     .detail-item { margin-bottom: 10px; }
                     .detail-item label { font-weight: bold; }
@@ -1171,20 +1306,22 @@ function updateCheckoutSummary() {
     const itemCount = cart.reduce((sum, item) => sum + item.quantity, 0);
     
     document.getElementById('checkoutSubtotal').textContent = subtotal.toFixed(2);
-    document.getElementById('checkoutItemCount').textContent = itemCount;
     
     // Calcular envío si hay dirección
     const address = document.getElementById('shippingAddress').value;
     if (address.trim()) {
         const shipping = calculateShipping(address);
-        document.getElementById('shippingCost').textContent = shipping.cost;
-        document.getElementById('shippingDistance').textContent = shipping.distance;
-        document.getElementById('shippingInfo').style.display = 'block';
+        const shippingElement = document.getElementById('checkoutShipping');
+        const shippingLine = document.getElementById('checkoutShippingLine');
+        
+        if (shippingElement) shippingElement.textContent = shipping.cost;
+        if (shippingLine) shippingLine.style.display = 'block';
         
         const total = subtotal + parseFloat(shipping.cost);
         document.getElementById('checkoutTotal').textContent = total.toFixed(2);
     } else {
-        document.getElementById('shippingInfo').style.display = 'none';
+        const shippingLine = document.getElementById('checkoutShippingLine');
+        if (shippingLine) shippingLine.style.display = 'none';
         document.getElementById('checkoutTotal').textContent = subtotal.toFixed(2);
     }
 }
